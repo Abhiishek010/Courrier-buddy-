@@ -12,13 +12,13 @@ dotenv.config();
 
 const seedAdmin = async () => {
     try {
-        const adminExists = await User.findOne({ email: "" });
+        const adminExists = await User.findOne({ email: "admin@example.com" });
         if (!adminExists) {
             const salt = await bcrypt.genSalt(10);
-            const hashedPassword = await bcrypt.hash("", salt);
+            const hashedPassword = await bcrypt.hash("demoadmin", salt);
             await User.create({
                 name: "Admin",
-                email: "",
+                email: "admin@example.com",
                 password: hashedPassword,
                 hostel: "Admin Hostel",
                 role: "admin"
@@ -54,9 +54,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/delivery", deliveryRoutes);
 app.use("/api/verify", verificationRoutes);
-app.use("/api/users", userRoutes);
 app.use("/api/admin", adminRoutes);
-app.use("/api/user", require("./routes/userRoutes"));
 
 
 app.get("/", (req, res) => {
