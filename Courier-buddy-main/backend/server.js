@@ -12,18 +12,18 @@ dotenv.config();
 
 const seedAdmin = async () => {
     try {
-        const adminExists = await User.findOne({ email: "admin@example.com" });
+        const adminExists = await User.findOne({ email: "" });
         if (!adminExists) {
             const salt = await bcrypt.genSalt(10);
-            const hashedPassword = await bcrypt.hash("admin123", salt);
+            const hashedPassword = await bcrypt.hash("", salt);
             await User.create({
                 name: "Admin",
-                email: "admin@example.com",
+                email: "",
                 password: hashedPassword,
                 hostel: "Admin Hostel",
                 role: "admin"
             });
-            console.log("Admin user created: admin@example.com / admin123");
+            console.log("Admin user created: ");
         }
     } catch (error) {
         console.error("Error seeding admin:", error);
