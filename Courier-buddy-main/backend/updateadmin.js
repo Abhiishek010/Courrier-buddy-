@@ -7,7 +7,7 @@ mongoose.connect(process.env.MONGO_URI);
 
 async function updateAdmin() {
   try {
-    const newPassword = "StrongAdmin@2026"; // 🔐 change this
+    const newPassword = "*******"; // 🔐 change this
 
     const hashedPassword = await bcrypt.hash(newPassword, 10);
 
