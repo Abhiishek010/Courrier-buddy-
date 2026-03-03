@@ -37,7 +37,14 @@ const startServer = async () => {
 const app = express();
 
 // Middleware must come before routes
-app.use(cors());
+const cors = require("cors");
+app.use(cors({
+  origin: [
+    "https://your-vercel-project.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 
