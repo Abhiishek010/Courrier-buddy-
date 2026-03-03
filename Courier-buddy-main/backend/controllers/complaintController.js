@@ -1,4 +1,4 @@
-const Complaint = require("../models/complaint");
+const Complaint = require("../models/Complaint");
 
 // Submit a new complaint (user)
 exports.submitComplaint = async (req, res) => {
