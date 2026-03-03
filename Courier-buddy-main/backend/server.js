@@ -37,13 +37,8 @@ const startServer = async () => {
 const app = express();
 
 // Middleware must come before routes
-const cors = require("cors");
 app.use(cors({
-  origin: [
-    "https://courrier-buddy.vercel.app/"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
+  origin: "*"
 }));
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
