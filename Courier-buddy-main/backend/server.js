@@ -30,29 +30,17 @@ const seedAdmin = async () => {
     }
 };
 
-const startServer = async () => {
+    const startServer = async () => {
     await connectDB();   // connect to MongoDB
     await seedAdmin();  // seed admin user
-
 const app = express();
-
-const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(",") || [
-        "https://courrier-buddy.vercel.app"
-    ];
-
-    app.use(cors({
-        origin: allowedOrigins,
-        credentials: true,
-        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
-        allowedHeaders: ["Content-Type", "Authorization"],
-    }));
-
-    // Handle preflight requests (important for mobile browsers)
-    app.options("*", cors());
-
-    // ── Middleware ───────────────────────────────────────────────────────
-    app.use(express.json());
-    app.use("/uploads", express.static("uploads"));
+        
+// Middleware must come before routes
+app.use(cors({
+  origin: "*"
+}));
+app.use(express.json());
+app.use('/uploads', express.static('uploads'));
 
 
 // connect routes to server.js
