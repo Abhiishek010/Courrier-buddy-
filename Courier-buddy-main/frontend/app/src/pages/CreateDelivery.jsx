@@ -612,7 +612,7 @@ const CreateDelivery = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      await axios.post("/delivery/create", {
+      await axios.post("/api/delivery/create", {
         productName,
         ecommerceCompany,
         pickupLocation,
