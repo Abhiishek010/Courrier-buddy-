@@ -588,7 +588,7 @@ const Register = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      await axios.post("/auth/register", { name, email, phone, password, hostel });
+      await axios.post("/api/auth/register", { name, email, phone, password, hostel });
       alert("Registration successful");
       navigate("/");
     } catch (error) {
