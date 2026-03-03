@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
         if (token) {
             localStorage.setItem("token", token);
             // Fetch user profile
-            axios.get("/user/profile")
+            axios.get("/api/user/profile")
                 .then(res => {
                     setUser(res.data.user);
                     setLoading(false);
