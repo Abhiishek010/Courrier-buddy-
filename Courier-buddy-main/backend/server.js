@@ -40,7 +40,7 @@ const app = express();
 const cors = require("cors");
 app.use(cors({
   origin: [
-    "https://your-vercel-project.vercel.app"
+    "https://courrier-buddy.vercel.app/"
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
