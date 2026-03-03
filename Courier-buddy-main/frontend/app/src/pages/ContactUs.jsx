@@ -151,7 +151,7 @@ const ContactUs = () => {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const res = await axios.get("/complaints/mine");
+        const res = await axios.get("/api/complaints/mine");
         setMyComplaints(res.data);
       } catch (e) {
         console.error(e);
@@ -180,7 +180,7 @@ const ContactUs = () => {
     }
     setSubmitting(true);
     try {
-      await axios.post("/complaints/submit", form);
+      await axios.post("/api/complaints/submit", form);
       setSubmitted(true);
     } catch (err) {
       alert(err?.response?.data?.message || "Failed to submit. Please try again.");
