@@ -36,12 +36,24 @@ const startServer = async () => {
 
 const app = express();
 
-// Middleware must come before routes
-app.use(cors({
-  origin: "*"
-}));
-app.use(express.json());
-app.use('/uploads', express.static('uploads'));
+const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(",") || [
+        "https://courrier-buddy.vercel.app"
+    ];
+
+    app.use(cors({
+        origin: allowedOrigins,
+        credentials: true,
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+    }));
+
+    // Handle preflight requests (important for mobile browsers)
+    app.options("*", cors());
+
+    // ── Middleware ───────────────────────────────────────────────────────
+    app.use(express.json());
+    app.use("/uploads", express.static("uploads"));
+
 
 // connect routes to server.js
 const authRoutes = require("./routes/authRoutes");
