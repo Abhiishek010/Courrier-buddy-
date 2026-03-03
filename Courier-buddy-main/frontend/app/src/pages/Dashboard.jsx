@@ -203,7 +203,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get("/user/profile");
+        const res = await axios.get("/api/user/profile");
         const fetchedUser = res.data.user;
         // If admin has blocked this user, log them out immediately
         if (fetchedUser?.isBlocked) {
@@ -246,7 +246,7 @@ const Dashboard = () => {
       await axios.put("/user/update-profile", { email, phone });
       setShowProfile(false);
       setToast(true);
-      const res = await axios.get("/user/profile");
+      const res = await axios.get("/api/user/profile");
       setFreshUser(res.data.user);
       setTimeout(() => setToast(false), 3000);
     } catch (err) {
