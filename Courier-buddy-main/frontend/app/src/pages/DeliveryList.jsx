@@ -611,7 +611,7 @@ const currentUserId = JSON.parse(localStorage.getItem("user"))?._id;
   const fetchDeliveries = async (isRefresh = false) => {
     if (isRefresh) setRefreshing(true);
     try {
-      const res = await axios.get("/delivery");
+      const res = await axios.get("/api/delivery");
       setDeliveries(res.data);
     } catch (error) {
       console.log(error);
@@ -627,7 +627,7 @@ const currentUserId = JSON.parse(localStorage.getItem("user"))?._id;
   const acceptDelivery = async (id) => {
   setActionLoading(id);
   try {
-    await axios.put(`/delivery/accept/${id}`);
+    await axios.put(`/api/delivery/accept/${id}`);
     fetchDeliveries();
   } catch (error) {
     alert(error.response?.data?.message || "You must verify your account first.");
@@ -643,7 +643,7 @@ const cancelDelivery = async (id) => {
 
   setActionLoading(id);
   try {
-    await axios.put(`/delivery/cancel/${id}`);
+    await axios.put(`/api/delivery/cancel/${id}`);
     fetchDeliveries();
   } catch (error) {
     alert("Error cancelling delivery");
@@ -657,7 +657,7 @@ const cancelDelivery = async (id) => {
 const markDelivered = async (id) => {
   setActionLoading(id);
   try {
-    await axios.put(`/delivery/deliver/${id}`);
+    await axios.put(`/api/delivery/deliver/${id}`);
     fetchDeliveries();
   } catch (error) {
     alert("Error marking delivered");
@@ -670,7 +670,7 @@ const markDelivered = async (id) => {
 const markNotDelivered = async (id) => {
   setActionLoading(id);
   try {
-    await axios.put(`/delivery/not-delivered/${id}`);
+    await axios.put(`/api/delivery/not-delivered/${id}`);
     fetchDeliveries();
   } catch (error) {
     alert("Error marking not delivered");
