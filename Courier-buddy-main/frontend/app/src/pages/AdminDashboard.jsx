@@ -77,7 +77,7 @@ const AdminDashboard = () => {
     const fetchAllUsers = async () => {
         try {
             setError(null);
-            const res = await axios.get("/admin/all-users");
+            const res = await axios.get("/api/admin/all-users");
             setAllUsers(res.data);
         } catch (err) {
             setError(err.message || "Failed to fetch users");
@@ -86,7 +86,7 @@ const AdminDashboard = () => {
 
     const fetchComplaints = async () => {
         try {
-            const res = await axios.get("/complaints/all");
+            const res = await axios.get("/api/complaints/all");
             setComplaints(res.data);
         } catch (err) {
             console.error(err);
@@ -102,7 +102,7 @@ const AdminDashboard = () => {
     const approveUser = async (id) => {
         setLoadingIds(prev => ({ ...prev, [id]: "approving" }));
         try {
-            await axios.put(`/admin/approve/${id}`);
+            await axios.put(`/api/admin/approve/${id}`);
             fetchAllUsers();
         } catch {
             alert("Error approving user");
@@ -121,7 +121,7 @@ const AdminDashboard = () => {
         setLoadingIds(prev => ({ ...prev, [id]: "rejecting" }));
         closeRejectModal();
         try {
-            await axios.put(`/admin/reject/${id}`, { reason }, { headers: { "Content-Type": "application/json" } });
+            await axios.put(`/api/admin/reject/${id}`, { reason }, { headers: { "Content-Type": "application/json" } });
             fetchAllUsers();
         } catch (err) {
             alert(`Error rejecting user: ${err?.response?.data?.message || err?.message}`);
@@ -140,7 +140,7 @@ const AdminDashboard = () => {
         setLoadingIds(prev => ({ ...prev, [id]: "blocking" }));
         closeBlockModal();
         try {
-            await axios.put(`/admin/block/${id}`, { reason }, { headers: { "Content-Type": "application/json" } });
+            await axios.put(`/api/admin/block/${id}`, { reason }, { headers: { "Content-Type": "application/json" } });
             fetchAllUsers();
         } catch (err) {
             alert(`Error blocking user: ${err?.response?.data?.message || err?.message}`);
@@ -152,7 +152,7 @@ const AdminDashboard = () => {
     const unblockUser = async (id) => {
         setLoadingIds(prev => ({ ...prev, [id]: "unblocking" }));
         try {
-            await axios.put(`/admin/unblock/${id}`);
+            await axios.put(`/api/admin/unblock/${id}`);
             fetchAllUsers();
         } catch (err) {
             alert(`Error unblocking user: ${err?.response?.data?.message || err?.message}`);
