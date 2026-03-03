@@ -510,7 +510,7 @@ const Login = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const res = await axios.post("/auth/login", { email, password });
+      const res = await axios.post("/api/auth/login", { email, password });
       console.log("LOGIN RESPONSE 🔥", res.data);
       localStorage.setItem("user", JSON.stringify(res.data.user));
       localStorage.setItem("token", res.data.token);
