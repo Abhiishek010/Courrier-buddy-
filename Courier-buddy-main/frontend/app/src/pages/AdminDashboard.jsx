@@ -165,7 +165,7 @@ const AdminDashboard = () => {
     const updateComplaint = async (id, status, adminNote) => {
         setUpdatingId(id);
         try {
-            await axios.put(`/complaints/update/${id}`, { status, adminNote });
+            await axios.put(`/api/complaints/update/${id}`, { status, adminNote });
             fetchComplaints();
         } catch {
             alert("Failed to update complaint");
