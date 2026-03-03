@@ -243,7 +243,7 @@ const Dashboard = () => {
   const updateProfile = async () => {
     setSaving(true);
     try {
-      await axios.put("/user/update-profile", { email, phone });
+      await axios.put("/api/user/update-profile", { email, phone });
       setShowProfile(false);
       setToast(true);
       const res = await axios.get("/api/user/profile");
