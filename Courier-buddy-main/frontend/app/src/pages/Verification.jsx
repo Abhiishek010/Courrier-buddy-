@@ -684,7 +684,7 @@ const Verification = () => {
     formData.append("collegeId", collegeId);
 
     try {
-      await axios.post("/verify/submit", formData, {
+      await axios.post("/api/verify/submit", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("Verification submitted successfully");
