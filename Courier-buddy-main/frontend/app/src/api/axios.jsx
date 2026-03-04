@@ -1,7 +1,7 @@
  import axios from "axios";
 
 const instance = axios.create({
-    baseURL: "https://courrier-buddy-production.up.railway.app/"
+    baseURL: "https://api.courierbuddy.in/"
 });
 
 instance.interceptors.request.use((config) => {
