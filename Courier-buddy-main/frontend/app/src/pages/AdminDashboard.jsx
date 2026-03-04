@@ -628,13 +628,13 @@ const AdminDashboard = () => {
                                                 <div className="ad-user-images">
                                                     {user.selfieImage && (
                                                         <div className="ad-img-wrap">
-                                                            <img src={`https://courrier-buddy-production.up.railway.app/${user.selfieImage}`} alt="selfie" />
+                                                            <img src={`https://api.courierbuddy.in/${user.selfieImage}`} alt="selfie" />
                                                             <span className="ad-img-label">Selfie</span>
                                                         </div>
                                                     )}
                                                     {user.collegeIdImage && (
                                                         <div className="ad-img-wrap">
-                                                            <img src={`https://courrier-buddy-production.up.railway.app/${user.collegeIdImage}`} alt="ID" />
+                                                            <img src={`https://api.courierbuddy.in/${user.collegeIdImage}`} alt="ID" />
                                                             <span className="ad-img-label">College ID</span>
                                                         </div>
                                                     )}
