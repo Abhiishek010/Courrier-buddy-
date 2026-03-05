@@ -12,7 +12,7 @@ import Verification from "./pages/Verification";
 import CreateDelivery from "./pages/CreateDelivery";
 import DeliveryList from "./pages/DeliveryList";
 import AdminDashboard from "./pages/AdminDashboard";
-import UserGuide from "./pages/userguide";
+import UserGuide from "./pages/UserGuide";
 import "./App.css";
 
 function App() {
