@@ -376,7 +376,7 @@ const LandingPage = () => {
           <div className="lp-features-grid">
             {[
               { i:"🔒", t:"ID-Verified Members",    d:"Every user submits a college ID and selfie before joining. You always know who is carrying your parcel — no strangers, only verified campus members." },
-              { i:"💸", t:"Completely Free",         d:"No delivery charges. No platform fees. No hidden costs. CourierBuddy runs entirely on the goodwill of students helping each other." },
+              { i:"💸", t:"Completely Free",         d:"No platform fees. No hidden costs. CourierBuddy runs entirely on the goodwill of students helping each other." },
               { i:"⚡", t:"Match by Route",          d:"Requests are matched to students who are already heading in the right direction. Deliveries happen naturally, fitting into existing journeys." },
               { i:"⭐", t:"Trust Ratings",           d:"After every delivery, both users rate each other. High-rated members earn more trust and become the most reliable helpers on campus." },
               { i:"🏫", t:"Campus-First Design",     d:"Not a generic delivery app. CourierBuddy is built specifically around how college campuses work — hostels, malls, and shared spaces." },
