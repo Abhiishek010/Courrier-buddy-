@@ -315,7 +315,7 @@ const LandingPage = () => {
               <div className="lp-flow-card">
                 <div className="lp-flow-card-icon">🛍️</div>
                 <div className="lp-flow-card-text">
-                  <strong>Arun is going to Phoenix Mall</strong>
+                  <strong>Arun is going to Mall</strong>
                   <span>He checks CourierBuddy for delivery requests nearby</span>
                 </div>
               </div>
