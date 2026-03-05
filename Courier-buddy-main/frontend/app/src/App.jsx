@@ -3,8 +3,8 @@ import { AuthProvider } from "./context/AuthContext";
 
 import PrivateRoute from "./components/PrivateRoute";
 import AdminRoute from "./components/AdminRoute";
-import ContactUs from "./pages/ContactUs";
 
+import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
@@ -12,7 +12,7 @@ import Verification from "./pages/Verification";
 import CreateDelivery from "./pages/CreateDelivery";
 import DeliveryList from "./pages/DeliveryList";
 import AdminDashboard from "./pages/AdminDashboard";
-import UserGuide from "./pages/UserGuide";
+import UserGuide from "./pages/userguide";
 import "./App.css";
 
 function App() {
@@ -20,7 +20,8 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/"      element={<LandingPage />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route
             path="/dashboard"
@@ -62,7 +63,6 @@ function App() {
               </PrivateRoute>
             }
           />
-          {/* ✅ Contact Us route — now properly inside <Routes> */}
           <Route
             path="/contact"
             element={

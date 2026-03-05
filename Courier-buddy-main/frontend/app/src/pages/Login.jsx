@@ -575,12 +575,18 @@ const Login = () => {
       <main className="cb-form-panel">
         <div className="cb-form-inner">
 
-          <nav className="cb-form-nav">
-            <div className="cb-mobile-logo">
-              <div className="cb-mobile-logo-icon">🚀</div>
-              <span className="cb-mobile-logo-name">Courier<span>Buddy</span></span>
-            </div>
-          </nav>
+         <nav className="cb-form-nav">
+  <button
+    onClick={() => navigate("/")}
+    style={{ background:"none", border:"none", color:"rgba(15,31,61,0.5)", fontSize:"0.82rem", fontWeight:600, cursor:"pointer", display:"flex", alignItems:"center", gap:"0.3rem", fontFamily:"'DM Sans', sans-serif", padding:0 }}
+  >
+    ← Back to Home
+  </button>
+  <div className="cb-mobile-logo">
+    <div className="cb-mobile-logo-icon">🚀</div>
+    <span className="cb-mobile-logo-name">Courier<span>Buddy</span></span>
+  </div>
+</nav>
 
           <div className="cb-step-badge">
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
