@@ -314,15 +314,15 @@ const LandingPage = () => {
             You ordered something online. It's at the mall. You can't go pick it up today — but your classmate is already heading there.
           </p>
 
-    <div className="lp-explainer-text">
-  <h3>Not in the mood to go to the mall <span>just for a parcel?</span></h3>
-  <p>
-    Your eKart parcel is sitting at the mall. You don't want to go. But <strong>someone else is already heading there</strong> to pick up their own order.
-  </p>
-  <p>
-    What if that student could bring yours too — since they're passing right by your place anyway? That's exactly what CourierBuddy makes possible.
-  </p>
-  <p>
+         <div className="lp-explainer-text">
+          <h3>Not in the mood to go to the mall <span>just for a parcel?</span></h3>
+          <p>
+            Your eKart parcel is sitting at the mall. You don't want to go. But <strong>someone else is already heading there</strong> to pick up their own order.
+          </p>
+          <p>
+          What if that student could bring yours too — since they're passing right by your place anyway? That's exactly what CourierBuddy makes possible.
+        </p>
+      <p>
     Post a delivery request. A verified fellow student at the mall accepts it, picks up your parcel on their way back, and delivers it to you. As a thank-you, <strong>pay them a fair amount</strong> based on the parcel's weight and size — they deserve it for the help.
   </p>
   <p style={{ color: "rgba(245,158,11,0.8)", fontSize: "0.9rem", fontStyle: "italic" }}>
