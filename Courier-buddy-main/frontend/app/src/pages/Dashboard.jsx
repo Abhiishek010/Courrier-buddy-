@@ -211,21 +211,23 @@ const Dashboard = () => {
           navigate("/");
           return;
         }
-        setFreshUser(fetchedUser);
-      } catch (err) {
-        // If 403, likely blocked — force logout
-        if (err?.response?.status === 403) {
-          logout();
-          navigate("/");
-        }
-        console.error("Failed to fetch fresh profile:", err);
+       setFreshUser(fetchedUser);
+    } catch (err) {
+      if (err?.response?.status === 403) {
+        logout();
+        navigate("/");
       }
-    };
+      console.error("Failed to fetch fresh profile:", err);
+    } finally {
+      setProfileLoaded(true);
+    }
+  };
     fetchProfile();
   }, []);
 
   /* ── profile modal state ── */
   const [showProfile, setShowProfile] = useState(false);
+  const [profileLoaded, setProfileLoaded] = useState(false);
   const [email, setEmail]   = useState("");
   const [phone, setPhone]   = useState("");
   const [saving, setSaving] = useState(false);
@@ -304,8 +306,8 @@ const Dashboard = () => {
               </button>
             </nav>
 
-            {!isVerified && (
-              <>
+            {profileLoaded && !isVerified && (
+             <>
                 <div className="cbd-nav-label">Account</div>
                 <nav className="cbd-nav">
                   <button className="cbd-nav-item" onClick={() => navigate("/verify")}>
@@ -352,7 +354,7 @@ const Dashboard = () => {
             </div>
 
             {/* ── Rejected banner — shows reason from fresh DB data ── */}
-            {isRejected && (
+            {profileLoaded && isRejected && (
               <div className="cbd-banner rejected" role="alert">
                 <div className="cbd-banner-icon">❌</div>
                 <div className="cbd-banner-text">
@@ -368,8 +370,9 @@ const Dashboard = () => {
               </div>
             )}
 
+           
             {/* ── Pending banner ── */}
-            {!isVerified && !isRejected && (
+            {profileLoaded && !isVerified && !isRejected && (
               <div className="cbd-banner" role="alert">
                 <div className="cbd-banner-icon">⚠️</div>
                 <div className="cbd-banner-text">
