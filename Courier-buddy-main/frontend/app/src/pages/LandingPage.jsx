@@ -326,7 +326,7 @@ const LandingPage = () => {
     Post a delivery request. A verified fellow student at the mall accepts it, picks up your parcel on their way back, and delivers it to you. As a thank-you, <strong>pay them a fair amount</strong> based on the parcel's weight and size — they deserve it for the help.
   </p>
   <p style={{ color: "rgba(245,158,11,0.8)", fontSize: "0.9rem", fontStyle: "italic" }}>
-    🤝 Trust works both ways — be fair, be honest, be a good campus citizen.
+  🤝 Trust works both ways — be fair, be honest, be a good campus citizen.
   </p>
   <button className="lp-btn-main" style={{ marginTop: "8px" }} onClick={() => navigate("/register")}>
     Get Started →
