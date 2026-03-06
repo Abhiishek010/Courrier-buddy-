@@ -288,7 +288,7 @@ const LandingPage = () => {
           <div className="lp-label">What is CourierBuddy?</div>
           <h2 className="lp-heading light">The Problem We Solve</h2>
           <p className="lp-body-text">
-            You ordered something online. It's at the mall. You can't go pick it up today — but your classmate is already heading there.
+            You ordered something online. It's at the mall. You can't go pick it up today but your classmate is already heading there.
           </p>
 
           {/* ── THIS IS THE FIXED EXPLAINER — lp-explainer wrapper restored ── */}
@@ -300,13 +300,13 @@ const LandingPage = () => {
                 Your eKart parcel is sitting at the mall. You don't want to go. But <strong>someone else is already heading there</strong> to pick up their own order.
               </p>
               <p>
-                What if that student could bring yours too — since they're passing right by your place anyway? That's exactly what CourierBuddy makes possible.
+                What if that student could bring yours too, since they're passing right by your place anyway? That's exactly what CourierBuddy makes possible.
               </p>
               <p>
-                Post a delivery request. A verified fellow student at the mall accepts it, picks up your parcel on their way back, and delivers it to you. As a thank-you, <strong>pay them a fair amount</strong> based on the parcel's weight and size — they deserve it for the help.
+                Post a delivery request. A verified fellow student at the mall accepts it, picks up your parcel on their way back, and delivers it to you. As a thank-you, <strong>pay them a fair amount</strong> based on the parcel's weight and size, they deserve it for the help.
               </p>
               <p style={{ color: "rgba(245,158,11,0.8)", fontSize: "0.9rem", fontStyle: "italic" }}>
-                🤝 Trust works both ways — be fair, be honest, be a good campus citizen.
+                🤝 Trust works both ways: be fair, be honest, be a good campus citizen.
               </p>
               <button className="lp-btn-main" style={{ marginTop: "8px" }} onClick={() => navigate("/register")}>
                 Get Started →
@@ -348,7 +348,7 @@ const LandingPage = () => {
         <div className="lp-max">
           <div className="lp-label">Step by Step</div>
           <h2 className="lp-heading light">How It Works</h2>
-          <p className="lp-body-text">Four simple steps from parcel request to delivery — handled entirely by your fellow students.</p>
+          <p className="lp-body-text">Four simple steps from parcel request to delivery, handled entirely by your fellow students.</p>
           <div className="lp-steps">
             {[
               { n:"01", e:"📝", t:"Post a Request", d:"Need your parcel picked up? Post a delivery request with the location, your hostel address, and timing. Takes 30 seconds." },
@@ -404,7 +404,7 @@ const LandingPage = () => {
                 Ready to join<br /><span>CourierBuddy?</span>
               </h2>
               <p className="lp-cta-sub">
-                Create your free account, get verified with your college ID, and start helping — or getting help from — your fellow students today.
+                Create your free account, get verified with your college ID, and start helping, or getting help, from your fellow students today.
               </p>
               <div className="lp-cta-btns">
                 <button className="lp-btn-main" onClick={() => navigate("/register")}>
