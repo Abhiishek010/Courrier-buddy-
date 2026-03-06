@@ -10,31 +10,34 @@ if (typeof document !== "undefined" && !document.getElementById("lp2-fonts")) {
 
 const CSS = `
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: #0f1f3d; color: #fff; overflow-x: hidden; }
+  html, body { scroll-behavior: smooth; width: 100%; max-width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #0f1f3d; color: #fff; }
+  #root { width: 100%; overflow-x: hidden; }
 
   /* ── NAVBAR ── */
   .lp-nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 6%; height: 70px;
+    width: 100%;
     background: rgba(10,18,35,0.95);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(245,158,11,0.12);
   }
   .lp-logo { display: flex; align-items: center; gap: 10px; }
-  .lp-logo-box { width: 36px; height: 36px; background: #f59e0b; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
-  .lp-logo-text { font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+  .lp-logo-box { width: 36px; height: 36px; background: #f59e0b; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .lp-logo-text { font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; white-space: nowrap; }
   .lp-logo-text span { color: #f59e0b; }
   .lp-nav-right { display: flex; align-items: center; gap: 12px; }
-  .lp-nav-register { padding: 9px 20px; background: transparent; color: rgba(255,255,255,0.7); border: 1.5px solid rgba(255,255,255,0.2); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+  .lp-nav-register { padding: 9px 20px; background: transparent; color: rgba(255,255,255,0.7); border: 1.5px solid rgba(255,255,255,0.2); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
   .lp-nav-register:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
-  .lp-nav-login { padding: 9px 24px; background: #f59e0b; color: #0f1f3d; border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+  .lp-nav-login { padding: 9px 24px; background: #f59e0b; color: #0f1f3d; border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
   .lp-nav-login:hover { background: #d97706; transform: translateY(-1px); }
 
   /* ── HERO ── */
   .lp-hero {
     min-height: 100vh;
+    width: 100%;
     background: linear-gradient(160deg, #0a1223 0%, #0f1f3d 50%, #0d1a30 100%);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center; padding: 100px 6% 60px;
@@ -49,7 +52,7 @@ const CSS = `
   .lp-hero-glow-top { position: absolute; width: 800px; height: 500px; border-radius: 50%; background: radial-gradient(ellipse, rgba(245,158,11,0.1) 0%, transparent 60%); top: -100px; left: 50%; transform: translateX(-50%); pointer-events: none; }
   .lp-hero-glow-bot { position: absolute; width: 600px; height: 400px; border-radius: 50%; background: radial-gradient(ellipse, rgba(30,52,96,0.8) 0%, transparent 70%); bottom: -100px; right: -100px; pointer-events: none; }
 
-  .lp-hero-content { position: relative; z-index: 1; max-width: 860px; }
+  .lp-hero-content { position: relative; z-index: 1; max-width: 860px; width: 100%; }
 
   .lp-hero-tag {
     display: inline-flex; align-items: center; gap: 8px;
@@ -58,8 +61,9 @@ const CSS = `
     letter-spacing: 0.1em; text-transform: uppercase;
     padding: 8px 18px; border-radius: 100px; margin-bottom: 2.5rem;
     animation: lpUp 0.6s cubic-bezier(0.22,1,0.36,1) both;
+    max-width: 100%;
   }
-  .lp-hero-tag-dot { width: 7px; height: 7px; border-radius: 50%; background: #f59e0b; animation: lpPulse 2s infinite; }
+  .lp-hero-tag-dot { width: 7px; height: 7px; border-radius: 50%; background: #f59e0b; flex-shrink: 0; animation: lpPulse 2s infinite; }
   @keyframes lpPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
 
   .lp-hero-title {
@@ -99,25 +103,25 @@ const CSS = `
     animation: lpUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.28s both;
     width: 100%; max-width: 560px; margin: 0 auto;
   }
-  .lp-stat { flex: 1; padding: 22px 20px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+  .lp-stat { flex: 1; padding: 22px 10px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); min-width: 0; }
   .lp-stat:last-child { border-right: none; }
-  .lp-stat-num { font-family: 'Syne', sans-serif; font-size: 1.9rem; font-weight: 800; color: #f59e0b; line-height: 1; margin-bottom: 6px; }
-  .lp-stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.4); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+  .lp-stat-num { font-family: 'Syne', sans-serif; font-size: clamp(1.3rem, 4vw, 1.9rem); font-weight: 800; color: #f59e0b; line-height: 1; margin-bottom: 6px; }
+  .lp-stat-label { font-size: 0.7rem; color: rgba(255,255,255,0.4); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
 
   @keyframes lpUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
 
-  /* ── EXPLAINER ── */
-  .lp-section { padding: 80px 6%; }
+  /* ── SECTIONS ── */
+  .lp-section { padding: 80px 6%; width: 100%; }
   .lp-max { max-width: 1100px; margin: 0 auto; }
 
   .lp-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #f59e0b; margin-bottom: 14px; text-align: center; }
-  .lp-heading { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; text-align: center; margin-bottom: 18px; }
+  .lp-heading { font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 4.5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; text-align: center; margin-bottom: 18px; }
   .lp-heading.dark { color: #0f1f3d; }
   .lp-heading.light { color: #fff; }
   .lp-body-text { font-size: 1.05rem; color: rgba(255,255,255,0.5); text-align: center; max-width: 580px; margin: 0 auto 56px; line-height: 1.75; }
   .lp-body-text.dark { color: rgba(15,31,61,0.6); }
 
-  /* ── WHAT IS IT — big explainer card ── */
+  /* ── EXPLAINER ── */
   .lp-explainer {
     background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
     border-radius: 24px; padding: 56px 48px;
@@ -181,13 +185,13 @@ const CSS = `
   .lp-cta-glow { position: absolute; width: 500px; height: 300px; border-radius: 50%; background: radial-gradient(ellipse, rgba(245,158,11,0.08) 0%, transparent 65%); top: -100px; left: 50%; transform: translateX(-50%); pointer-events: none; }
   .lp-cta-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; }
   .lp-cta-inner { position: relative; z-index: 1; }
-  .lp-cta-title { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; color: #fff; letter-spacing: -0.03em; margin-bottom: 16px; line-height: 1.15; }
+  .lp-cta-title { font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: #fff; letter-spacing: -0.03em; margin-bottom: 16px; line-height: 1.15; }
   .lp-cta-title span { color: #f59e0b; }
   .lp-cta-sub { font-size: 1.05rem; color: rgba(255,255,255,0.5); margin-bottom: 36px; line-height: 1.75; max-width: 520px; margin-left: auto; margin-right: auto; }
   .lp-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
   /* ── FOOTER ── */
-  .lp-footer { background: #080d1a; border-top: 1px solid rgba(255,255,255,0.06); padding: 28px 6%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .lp-footer { background: #080d1a; border-top: 1px solid rgba(255,255,255,0.06); padding: 28px 6%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; width: 100%; }
   .lp-footer-logo { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 800; color: rgba(255,255,255,0.3); }
   .lp-footer-logo span { color: #f59e0b; }
   .lp-footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.2); }
@@ -195,17 +199,33 @@ const CSS = `
   .lp-footer-link { font-size: 0.78rem; color: rgba(255,255,255,0.25); background: none; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: color 0.2s; }
   .lp-footer-link:hover { color: rgba(255,255,255,0.6); }
 
+  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .lp-explainer { grid-template-columns: 1fr; padding: 36px 28px; }
     .lp-steps { grid-template-columns: 1fr 1fr; }
     .lp-features-grid { grid-template-columns: 1fr 1fr; }
   }
+
   @media (max-width: 600px) {
+    .lp-nav { padding: 0 4%; height: 60px; }
     .lp-nav-register { display: none; }
+    .lp-hero { padding: 80px 4% 48px; min-height: 100svh; }
+    .lp-hero-title { font-size: clamp(1.75rem, 8vw, 2.4rem); }
+    .lp-hero-desc { font-size: 0.97rem; }
+    .lp-hero-btns { flex-direction: column; align-items: center; gap: 10px; }
+    .lp-btn-main, .lp-btn-outline { width: 100%; max-width: 320px; padding: 14px 24px; font-size: 0.95rem; }
+    .lp-stats-bar { max-width: 100%; }
+    .lp-stat { padding: 16px 8px; }
     .lp-steps { grid-template-columns: 1fr; }
     .lp-features-grid { grid-template-columns: 1fr; }
-    .lp-section { padding: 56px 5%; }
-    .lp-cta-wrap { padding: 48px 24px; border-radius: 20px; }
+    .lp-section { padding: 48px 4%; }
+    .lp-explainer { padding: 28px 20px; }
+    .lp-cta-wrap { padding: 40px 20px; border-radius: 20px; }
+    .lp-cta-btns { flex-direction: column; align-items: center; }
+    .lp-cta-btns .lp-btn-main,
+    .lp-cta-btns .lp-btn-outline { width: 100%; max-width: 320px; }
+    .lp-footer { flex-direction: column; align-items: flex-start; padding: 24px 4%; }
+    .lp-footer-copy { order: 3; }
   }
 `;
 
@@ -221,7 +241,7 @@ const LandingPage = () => {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <div style={{ background: "#0f1f3d" }}>
+    <div style={{ background: "#0f1f3d", width: "100%", overflowX: "hidden" }}>
 
       {/* ── NAVBAR ── */}
       <nav className="lp-nav">
@@ -315,7 +335,7 @@ const LandingPage = () => {
               <div className="lp-flow-card">
                 <div className="lp-flow-card-icon">🛍️</div>
                 <div className="lp-flow-card-text">
-                  <strong>Arun is going to Mall</strong>
+                  <strong>Arun is going to Phoenix Mall</strong>
                   <span>He checks CourierBuddy for delivery requests nearby</span>
                 </div>
               </div>
@@ -376,7 +396,7 @@ const LandingPage = () => {
           <div className="lp-features-grid">
             {[
               { i:"🔒", t:"ID-Verified Members",    d:"Every user submits a college ID and selfie before joining. You always know who is carrying your parcel — no strangers, only verified campus members." },
-              { i:"💸", t:"Completely Free",         d:"No platform fees. No hidden costs. CourierBuddy runs entirely on the goodwill of students helping each other." },
+              { i:"💸", t:"Completely Free",         d:"No delivery charges. No platform fees. No hidden costs. CourierBuddy runs entirely on the goodwill of students helping each other." },
               { i:"⚡", t:"Match by Route",          d:"Requests are matched to students who are already heading in the right direction. Deliveries happen naturally, fitting into existing journeys." },
               { i:"⭐", t:"Trust Ratings",           d:"After every delivery, both users rate each other. High-rated members earn more trust and become the most reliable helpers on campus." },
               { i:"🏫", t:"Campus-First Design",     d:"Not a generic delivery app. CourierBuddy is built specifically around how college campuses work — hostels, malls, and shared spaces." },
