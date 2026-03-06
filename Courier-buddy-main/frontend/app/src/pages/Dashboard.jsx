@@ -409,29 +409,6 @@ const Dashboard = () => {
                 <div className="cbd-action-arrow">Report an issue →</div>
               </button>
             </div>
-
-            <div>
-              <div className="cbd-section-head">
-                <span className="cbd-section-title">Recent Activity</span>
-                <button className="cbd-see-all" onClick={() => navigate("/deliveries")}>See all →</button>
-              </div>
-              <div className="cbd-activity">
-                {[
-                  { dot:"delivered", label:"delivered", title:"Package #4821 delivered",        time:"Today, 2:30 PM" },
-                  { dot:"transit",   label:"transit",   title:"Package #4819 out for delivery", time:"Today, 10:15 AM" },
-                  { dot:"pending",   label:"pending",   title:"Package #4817 awaiting pickup",  time:"Yesterday, 4:00 PM" },
-                ].map((item, i) => (
-                  <div className="cbd-activity-row" key={i}>
-                    <div className={`cbd-act-dot ${item.dot}`} />
-                    <div className="cbd-act-info">
-                      <div className="cbd-act-title">{item.title}</div>
-                      <div className="cbd-act-time">{item.time}</div>
-                    </div>
-                    <span className={`cbd-act-badge ${item.label}`}>{item.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
