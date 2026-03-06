@@ -314,22 +314,24 @@ const LandingPage = () => {
             You ordered something online. It's at the mall. You can't go pick it up today — but your classmate is already heading there.
           </p>
 
-          <div className="lp-explainer">
-            <div className="lp-explainer-text">
-              <h3>A campus delivery network built on <span>student trust</span></h3>
-              <p>
-                CourierBuddy is not a courier company. There are <strong>no paid delivery agents</strong>, no corporate middlemen, and absolutely no fees.
-              </p>
-              <p>
-                It's a platform where <strong>students help other students</strong>. If you're already going to a mall or store, you can pick up parcels for others along the way — and build your campus reputation while doing it.
-              </p>
-              <p>
-                Every user is <strong>verified with their college ID</strong>, so you always know exactly who is carrying your parcel.
-              </p>
-              <button className="lp-btn-main" style={{ marginTop: "8px" }} onClick={() => navigate("/register")}>
-                Get Started →
-              </button>
-            </div>
+    <div className="lp-explainer-text">
+  <h3>Not in the mood to go to the mall <span>just for a parcel?</span></h3>
+  <p>
+    Your eKart parcel is sitting at the mall. You don't want to go. But <strong>someone else is already heading there</strong> to pick up their own order.
+  </p>
+  <p>
+    What if that student could bring yours too — since they're passing right by your place anyway? That's exactly what CourierBuddy makes possible.
+  </p>
+  <p>
+    Post a delivery request. A verified fellow student at the mall accepts it, picks up your parcel on their way back, and delivers it to you. As a thank-you, <strong>pay them a fair amount</strong> based on the parcel's weight and size — they deserve it for the help.
+  </p>
+  <p style={{ color: "rgba(245,158,11,0.8)", fontSize: "0.9rem", fontStyle: "italic" }}>
+    🤝 Trust works both ways — be fair, be honest, be a good campus citizen.
+  </p>
+  <button className="lp-btn-main" style={{ marginTop: "8px" }} onClick={() => navigate("/register")}>
+    Get Started →
+  </button>
+</div>
 
             <div className="lp-explainer-visual">
               <div className="lp-flow-card">
